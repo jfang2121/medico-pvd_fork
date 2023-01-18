@@ -1,6 +1,6 @@
 {
   "name": "nuevasvoces_leaflet",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Customize your Leaflet story map with linked Google Sheets template and scrolling narrative. Supports images, audio and video embeddings, and Leaflet TileLayer/geojson overlays.",
   "main": "google-doc-url.js",
   "scripts": {
