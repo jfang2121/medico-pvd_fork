@@ -5,7 +5,8 @@
   "main": "google-doc-url.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "env-cmd -f .env webpack --config webpack.config.js"
+    "build": "env-cmd -f .env webpack --config webpack.config.js",
+    "build-prod": "webpack"
   },
   "repository": {
     "type": "git",
