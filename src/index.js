@@ -244,7 +244,8 @@ $(window).on("load", function () {
       var mediaExt = c["Media Link"]
         ? c["Media Link"].split(".").pop().toLowerCase()
         : "";
-      var mediaType = mediaTypes[mediaExt];
+      var mediaType = mediaTypes[mediaExt] || "img";
+      console.log(1, mediaTypes[mediaExt]);
 
       if (mediaType) {
         media = $("<" + mediaType + ">", {
@@ -273,10 +274,12 @@ $(window).on("load", function () {
       }
 
       container
-        .append('<p class="chapter-header">' + c["Chapter"] + "</p>")
+        .append('<p class="chapter-header">' + c["Resource"] + "</p>")
         .append(media ? mediaContainer : "")
         .append(media ? source : "")
         .append('<p class="description">' + c["Description"] + "</p>");
+
+      console.log(c);
 
       $("#contents").append(container);
     }
