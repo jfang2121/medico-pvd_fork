@@ -277,8 +277,8 @@ $(window).on("load", function () {
         .append('<p class="chapter-header">' + c["Resource"] + "</p>")
         .append(media ? mediaContainer : "")
         .append(media ? source : "")
-       // .append('<p class="description">' + c["Description"] + "</p>")
         .append('<p class="description">' + c["Descripcion"] + "</p>");
+   // .append('<p class="description">' + c["Description"] + "</p>")
 
       console.log(c);
 
