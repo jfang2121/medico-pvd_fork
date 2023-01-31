@@ -109,7 +109,7 @@ $(window).on("load", function () {
     // Add logo
     if (getSetting("_mapLogo")) {
       $("#logo").append('<img src="' + getSetting("_mapLogo") + '" />');
-      $("#top").css("height", "60px");
+      $("#top").css("height", "150px");
     } else {
       $("#logo").css("display", "none");
       $("#header").css("padding-top", "25px");
