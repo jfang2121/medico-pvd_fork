@@ -86,7 +86,9 @@ body {
   max-height: 200px;
   width: 100%;
 }
-
+.translate-title {
+  margin-top: 3rem;
+}
 .audio-container {
   margin: 0;
   margin-bottom: 5px;
@@ -100,6 +102,7 @@ body {
   text-align: center;
   font-size: 1.2em;
   padding: 0 5px;
+  font-weight: 900;
 }
 
 .source {
@@ -119,7 +122,7 @@ a.source:visited {
 }
 
 .in-focus {
-  opacity: 1.0;
+  opacity: 1;
 }
 
 .out-focus {
@@ -144,7 +147,7 @@ a.source:visited {
 
 /* Storymap logo image above the title */
 #logo {
-  height: 30px;
+  height: 100px;
   line-height: 30px;
   text-align: center;
   padding: 10px;

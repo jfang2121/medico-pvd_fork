@@ -186,6 +186,7 @@ $(window).on("load", function () {
       }
 
       // Add chapter container
+
       var container = $("<div></div>", {
         id: "container" + i,
         class: "chapter-container",
@@ -205,7 +206,7 @@ $(window).on("load", function () {
           class: "source",
         });
       } else {
-        source = $("<span>", {
+        source = $("<div>", {
           text: c["Media Credit"],
           class: "source",
         });
@@ -245,7 +246,6 @@ $(window).on("load", function () {
         ? c["Media Link"].split(".").pop().toLowerCase()
         : "";
       var mediaType = mediaTypes[mediaExt] || "img";
-      console.log(1, mediaTypes[mediaExt]);
 
       if (mediaType) {
         media = $("<" + mediaType + ">", {
@@ -275,12 +275,14 @@ $(window).on("load", function () {
 
       container
         .append('<p class="chapter-header">' + c["Resource"] + "</p>")
-        .append(media ? mediaContainer : "")
+        .append(media && c["Media Link"] ? mediaContainer : "")
         .append(media ? source : "")
-        .append('<p class="description">' + c["Descripcion"] + "</p>");
-   // .append('<p class="description">' + c["Description"] + "</p>")
+        .append('<h2 class="translate-title"> Descripción </h2>')
+        .append('<p class="description">' + c["Descripcion"] + "</p>")
+        .append('<h2 class="translate-title">English Translation</h2>')
+        .append('<p class="description">' + c["Description"] + "</p>");
 
-      console.log(c);
+      console.log(c["Media Link"]);
 
       $("#contents").append(container);
     }
