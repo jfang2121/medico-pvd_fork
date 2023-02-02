@@ -1,3 +1,11 @@
+## Build Process:
+
+ - npm install (install dependencies)
+  - NOTE: create a .env file where you define the googleApiKey and googleDocURL
+
+- npm run build
+  - creates main index.html file to serve statically
+
 # Leaflet Storymaps with Google Sheets
 Customize your Leaflet story map with linked Google Sheets template and scrolling narrative.
 Supports images, audio and video embeddings, and Leaflet TileLayer/geojson overlays.

@@ -87,7 +87,7 @@ body {
   width: 100%;
 }
 .translate-title {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 .audio-container {
   margin: 0;
@@ -103,6 +103,7 @@ body {
   font-size: 1.2em;
   padding: 0 5px;
   font-weight: 900;
+  text-decoration: underline;
 }
 
 .source {
