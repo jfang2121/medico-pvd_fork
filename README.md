@@ -1,10 +1,15 @@
 ## Build Process:
 
- - npm install (install dependencies)
-  - NOTE: create a .env file where you define the googleApiKey and googleDocURL
+## Build Process
 
-- npm run build
-  - creates main index.html file to serve statically
+1. **NOTE:** Create a `.env` file where you define the `googleApiKey` and `googleDocURL`
+
+2. `npm install` (install dependencies)
+
+3. `npm run build`
+
+This creates the main `index.html` file to serve statically.
+
 
 # Leaflet Storymaps with Google Sheets
 Customize your Leaflet story map with linked Google Sheets template and scrolling narrative.
