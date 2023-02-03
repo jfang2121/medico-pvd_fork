@@ -54,6 +54,7 @@ body {
   padding: 0;
   visibility: hidden;
   font-weight: bold;
+  font-style: italic;
   text-align: center;
 }
 
@@ -88,6 +89,7 @@ body {
 }
 .translate-title {
   margin-top: 1.5rem;
+  font-style: italic;
 }
 .audio-container {
   margin: 0;
@@ -177,4 +179,32 @@ h2 {
   margin: 0;
   font-size: 1.1em;
   font-weight: normal;
+}
+
+.listen {
+  display: flex;
+  margin: 1rem 0;
+  background: lightblue;
+  margin: 0 auto;
+  margin-top: 1rem;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 999999px;
+  cursor: pointer;
+  z-index: 999999999;
+  gap: 10px;
+  align-items: center;
+  font-weight: 900;
+}
+.listen:hover {
+  background: white;
+}
+.stop {
+  margin: 0.5rem 0;
+  z-index: 999999999;
+  cursor: pointer;
+  border: none;
+  text-decoration: underline;
+  font-weight: 600;
+  color: red;
 }
