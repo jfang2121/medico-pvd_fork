@@ -157,7 +157,7 @@ $(window).on("load", function () {
 
     for (i in chapters) {
       var c = chapters[i];
-      console.log(i);
+      console.log(chapters);
 
       if (
         !isNaN(parseFloat(c["Latitude"])) &&
@@ -274,6 +274,47 @@ $(window).on("load", function () {
         })
           .append(media)
           .after(source);
+        var mediaTypes = {
+          jpg: "img",
+          jpeg: "img",
+          png: "img",
+          tiff: "img",
+          gif: "img",
+          mp3: "audio",
+          ogg: "audio",
+          wav: "audio",
+        };
+
+        var mediaExt = c["Services Media Link"]
+          ? c["Services Media Link"].split(".").pop().toLowerCase()
+          : "";
+        var mediaType = mediaTypes[mediaExt] || "img";
+
+        if (mediaType) {
+          media = $("<" + mediaType + ">", {
+            src: c["Services Media Link"],
+            controls: mediaType === "audio" ? "controls" : "",
+            alt: c["Chapter"],
+          });
+
+          var enableLightbox =
+            getSetting("_enableLightbox") === "yes" ? true : false;
+          if (enableLightbox && mediaType === "img") {
+            var lightboxWrapper = $("<a></a>", {
+              "data-lightbox": c["Services Media Link"],
+              href: c["Services Media Link"],
+              "data-title": c["Chapter"],
+              "data-alt": c["Chapter"],
+            });
+            media = lightboxWrapper.append(media);
+          }
+
+          mediaContainer = $("<div></div", {
+            class: mediaType + "-container",
+          })
+            .append(media)
+            .after(source);
+        }
       }
       descArray.push(c["Descripcion"]);
 
