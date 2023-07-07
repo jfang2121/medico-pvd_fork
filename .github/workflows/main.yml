@@ -1,28 +1,23 @@
-name: Deploy pages w/cd Webpak
+name: Build production code
 
 on:
-  push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x, 18.x]
-
     steps:
-      - uses: actions/checkout@v3
+    - name: Check out code
+      uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 16
 
-      - name: Build
-        run: |
-          npm install
-          npm run build-prod
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build production code
+      run: npm run build-prod
