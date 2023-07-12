@@ -115,6 +115,13 @@ body {
   padding: 0 5px;
 }
 
+.chapter-phone {
+  display: block;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 0 5px;
+}
+
 .source {
   font-size: 9pt;
   font-style: italic;
