@@ -4,11 +4,12 @@ This is a storymap of community resources in Providence, Rhode Island, built usi
 
 ## Build Process
 
+The regular version requires:
 1. Create a `.env` file where you define the `googleApiKey` and `googleDocURL`.
 2. Run `npm install` to install dependencies.
 3. Run `npm run build` to create the main `index.html` file to serve statically.
-or
-4. For this file, go to actions menu in the top of the github and then build. 
+
+For this file, go to actions menu in the top of the github and then build. 
 
 ## Description
 
