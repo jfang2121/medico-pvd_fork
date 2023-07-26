@@ -195,30 +195,48 @@ $(window).on("load", function () {
         class: "chapter-container",
       });
 
+      // Media 1
+
       // Add media and credits: YouTube, audio, or image
       var media = null;
       var mediaContainer = null;
+      var sourcename = null;
+      var sourcelink = null;
+      var medialink = null;
+      var media2 = null;
+      var mediaContainer2 = null;
+      var sourcename2 = null;
+      var sourcelink2 = null;
+      var medialink2 = null;
+
+      sourcename = "Media Credit"
+      sourcelink = "Media Credit Link"
+      medialink = "Media Link"
+
+      sourcename2 = "Services Media Credit"
+      sourcelink2 = "Services Media Credit Link"
+      medialink2 = "Services Media Link"
 
       // Add media source
       var source = "";
-      if (c["Media Credit Link"]) {
+      if (c[sourcename]) {
         source = $("<a>", {
-          text: c["Media Credit"],
-          href: c["Media Credit Link"],
+          text: c[sourcename],
+          href: c[sourcelink],
           target: "_blank",
           class: "source",
         });
       } else {
         source = $("<div>", {
-          text: c["Media Credit"],
+          text: c[sourcename],
           class: "source",
         });
       }
 
       // YouTube
-      if (c["Media Link"] && c["Media Link"].indexOf("youtube.com/") > -1) {
+      if (c[medialink] && c[medialink].indexOf("youtube.com/") > -1) {
         media = $("<iframe></iframe>", {
-          src: c["Media Link"],
+          src: c[medialink],
           width: "100%",
           height: "100%",
           frameborder: "0",
@@ -245,14 +263,14 @@ $(window).on("load", function () {
         wav: "audio",
       };
 
-      var mediaExt = c["Media Link"]
-        ? c["Media Link"].split(".").pop().toLowerCase()
+      var mediaExt = c[medialink]
+        ? c[medialink].split(".").pop().toLowerCase()
         : "";
       var mediaType = mediaTypes[mediaExt] || "img";
 
       if (mediaType) {
         media = $("<" + mediaType + ">", {
-          src: c["Media Link"],
+          src: c[medialink],
           controls: mediaType === "audio" ? "controls" : "",
           alt: c["Chapter"],
         });
@@ -261,8 +279,8 @@ $(window).on("load", function () {
           getSetting("_enableLightbox") === "yes" ? true : false;
         if (enableLightbox && mediaType === "img") {
           var lightboxWrapper = $("<a></a>", {
-            "data-lightbox": c["Media Link"],
-            href: c["Media Link"],
+            "data-lightbox": c[medialink],
+            href: c[medialink],
             "data-title": c["Chapter"],
             "data-alt": c["Chapter"],
           });
@@ -274,47 +292,85 @@ $(window).on("load", function () {
         })
           .append(media)
           .after(source);
-        var mediaTypes = {
-          jpg: "img",
-          jpeg: "img",
-          png: "img",
-          tiff: "img",
-          gif: "img",
-          mp3: "audio",
-          ogg: "audio",
-          wav: "audio",
-        };
-
-        var mediaExt = c["Services Media Link"]
-          ? c["Services Media Link"].split(".").pop().toLowerCase()
-          : "";
-        var mediaType = mediaTypes[mediaExt] || "img";
-
-        if (mediaType) {
-          media = $("<" + mediaType + ">", {
-            src: c["Services Media Link"],
-            controls: mediaType === "audio" ? "controls" : "",
-            alt: c["Chapter"],
-          });
-
-          var enableLightbox =
-            getSetting("_enableLightbox") === "yes" ? true : false;
-          if (enableLightbox && mediaType === "img") {
-            var lightboxWrapper = $("<a></a>", {
-              "data-lightbox": c["Services Media Link"],
-              href: c["Services Media Link"],
-              "data-title": c["Chapter"],
-              "data-alt": c["Chapter"],
-            });
-            media = lightboxWrapper.append(media);
-          }
-
-          mediaContainer = $("<div></div", {
-            class: mediaType + "-container",
-          })
-            .append(media)
-            .after(source);
         }
+
+        // Add media source 2
+      var source2 = "";
+      if (c[sourcename2]) {
+        source2 = $("<a>", {
+          text: c[sourcename2],
+          href: c[sourcelink2],
+          target: "_blank",
+          class: "source",
+        });
+      } else {
+        source2 = $("<div>", {
+          text: c[sourcename2],
+          class: "source",
+        });
+      }
+
+      // YouTube
+      if (c[medialink2] && c[medialink2].indexOf("youtube.com/") > -1) {
+        media = $("<iframe></iframe>", {
+          src: c[medialink2],
+          width: "100%",
+          height: "100%",
+          frameborder: "0",
+          allow: "autoplay; encrypted-media",
+          allowfullscreen: "allowfullscreen",
+        });
+
+        mediaContainer2 = $("<div></div>", {
+          class: "img-container",
+        })
+          .append(media2)
+          .after(source2);
+      }
+
+      // If not YouTube: either audio or image
+      var mediaTypes = {
+        jpg: "img",
+        jpeg: "img",
+        png: "img",
+        tiff: "img",
+        gif: "img",
+        mp3: "audio",
+        ogg: "audio",
+        wav: "audio",
+      };
+
+      var mediaExt2 = c[medialink]
+        ? c[medialink].split(".").pop().toLowerCase()
+        : "";
+      var mediaType2 = mediaTypes[mediaExt2] || "img";
+
+      if (mediaType2) {
+        media2 = $("<" + mediaType2 + ">", {
+          src: c[medialink2],
+          controls: mediaType2 === "audio" ? "controls" : "",
+          alt: c["Chapter"],
+        });
+
+        var enableLightbox =
+          getSetting("_enableLightbox") === "yes" ? true : false;
+        if (enableLightbox && mediaType2 === "img") {
+          var lightboxWrapper = $("<a></a>", {
+            "data-lightbox": c[medialink2],
+            href: c[medialink2],
+            "data-title": c["Chapter"],
+            "data-alt": c["Chapter"],
+          });
+          media2 = lightboxWrapper.append(media2);
+        }
+
+        mediaContainer2 = $("<div></div", {
+          class: mediaType2 + "-container",
+        })
+          .append(media2)
+          .after(source2);
+        
+
       }
       descArray.push(c["Descripcion"]);
 
@@ -335,8 +391,10 @@ $(window).on("load", function () {
         .append('<p class="chapter-header">' + c["Resource"] + "</p>")
         .append('<p class="chapter-address">' + c["Address"] + "</p>")
         .append('<p class="chapter-phone">' + c["PhoneNumber"] + "</p>")
-        .append(media && c["Media Link"] ? mediaContainer : "")
+        .append(media && c[medialink] ? mediaContainer : "")
         .append(media ? source : "")
+        .append(media2 && c[medialink2] ? mediaContainer2 : "")
+        .append(media2 ? source2 : "")
         .append('<h2 class="translate-title"> Descripción </h2>')
         .append(
           `<button class='listen listen-${i} ' ><span>Escucha</span> <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path d="M6 7l8-5v20l-8-5v-10zm-6 10h4v-10h-4v10zm20.264-13.264l-1.497 1.497c1.847 1.783 2.983 4.157 2.983 6.767 0 2.61-1.135 4.984-2.983 6.766l1.498 1.498c2.305-2.153 3.735-5.055 3.735-8.264s-1.43-6.11-3.736-8.264zm-.489 8.264c0-2.084-.915-3.967-2.384-5.391l-1.503 1.503c1.011 1.049 1.637 2.401 1.637 3.888 0 1.488-.623 2.841-1.634 3.891l1.503 1.503c1.468-1.424 2.381-3.309 2.381-5.394z"/></svg></button>`
