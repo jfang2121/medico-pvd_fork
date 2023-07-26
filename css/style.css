@@ -111,15 +111,15 @@ body {
 .chapter-address {
   display: block;
   text-align: center;
-  font-size: 1.2em;
-  padding: 0 5px;
+  font-size: 1em;
+  padding: 0 2px;
 }
 
 .chapter-phone {
   display: block;
   text-align: center;
-  font-size: 1.2em;
-  padding: 0 5px;
+  font-size: 1em;
+  padding: 0 2px;
 }
 
 .source {
