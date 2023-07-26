@@ -8,6 +8,7 @@ The regular version requires:
 1. Create a `.env` file where you define the `googleApiKey` and `googleDocURL`.
 2. Run `npm install` to install dependencies.
 3. Run `npm run build` to create the main `index.html` file to serve statically.
+4. Install Live Server extension, then you can open index.html with "Live View" in the lower left
 
 For this file, go to actions menu in the top of the github and then build. 
 
